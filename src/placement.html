@@ -4,71 +4,117 @@
 
 {% block content %}
 <div class="page-heading">
-  <h3>Placement Tracker Dashboard</h3>
+    <h3>Placement Tracker Dashboard</h3>
 </div>
 <div class="page-content">
-  <section class="row">
-    <div class="col-12">
-      <div class="row" id="summaryCards">
-        <div class="col-md-3 col-6 mb-3">
-          <div class="card text-center bg-primary text-white shadow-sm">
-            <div class="card-body">
-              <h6>Applied</h6>
-              <h2>15</h2>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3">
-          <div class="card text-center bg-success text-white shadow-sm">
-            <div class="card-body">
-              <h6>Selected</h6>
-              <h2>3</h2>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3">
-          <div class="card text-center bg-warning text-dark shadow-sm">
-            <div class="card-body">
-              <h6>Pending</h6>
-              <h2>5</h2>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3">
-          <div class="card text-center bg-info text-white shadow-sm">
-            <div class="card-body">
-              <h6>Upcoming</h6>
-              <h2>4</h2>
-            </div>
-          </div>
-        </div>
-      </div>
+    <section class="row">
+        <div class="col-12">
+            <div class="row" id="summaryCards">
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="card text-center bg-primary text-white shadow-sm">
+                        <div class="card-body">
+                            <h6>Applied</h6>
+                            <h2 id="appliedCount">0</h2>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="card mt-4 shadow-sm">
-        <div class="card-header fw-bold">Placement Drives</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-striped align-middle mb-0">
-              <thead class="table-dark">
-                <tr>
-                  <th>#</th>
-                  <th>Company</th>
-                  <th>Role</th>
-                  <th>Status</th>
-                  <th>Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>1</td><td>Deloitte</td><td>Analyst</td><td><span class="badge bg-success">Selected</span></td><td>2025-09-12</td></tr>
-                <tr><td>2</td><td>TCS</td><td>Developer</td><td><span class="badge bg-warning text-dark">Pending</span></td><td>2025-10-01</td></tr>
-                <tr><td>3</td><td>Wipro</td><td>Engineer</td><td><span class="badge bg-secondary">Applied</span></td><td>2025-11-03</td></tr>
-                <tr><td>4</td><td>Infosys</td><td>System Associate</td><td><span class="badge bg-info">Upcoming</span></td><td>2025-12-10</td></tr>
-              </tbody>
-            </table>
-          </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="card text-center bg-success text-white shadow-sm">
+                        <div class="card-body">
+                            <h6>Selected</h6>
+                            <h2 id="selectedCount">0</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="card text-center bg-warning text-dark shadow-sm">
+                        <div class="card-body">
+                            <h6>Pending</h6>
+                            <h2 id="pendingCount">0</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="card text-center bg-info text-white shadow-sm">
+                        <div class="card-body">
+                            <h6>Upcoming</h6>
+                            <h2 id="upcomingCount">0</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4 shadow-sm">
+                <div class="card-header fw-bold">Placement Drives</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped align-middle mb-0">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Company</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="placementTableBody">
+                                <tr>
+                                    <td colspan="5" class="text-center text-muted">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </div>
+{% endblock %}
+{% block js %}
+<script>
+    // Fetch placement data dynamically
+    fetch("assets/data/placement.json")
+        .then((res) => res.json())
+        .then((data) => {
+            // Update summary cards
+            document.querySelector('#appliedCount').innerText = data.summary.applied;
+            document.querySelector('#selectedCount').innerText = data.summary.selected;
+            document.querySelector('#pendingCount').innerText = data.summary.pending;
+            document.querySelector('#upcomingCount').innerText = data.summary.upcoming;
+
+            // Populate table
+            const tableBody = document.querySelector('#placementTableBody');
+            tableBody.innerHTML = '';
+            data.drives.forEach((drive, index) => {
+                const row = `
+          <tr>
+            <td>${index + 1}</td>
+            <td>${drive.company}</td>
+            <td>${drive.role}</td>
+            <td>
+              <span class="badge bg-${getStatusColor(drive.status)}">${drive.status}</span>
+            </td>
+            <td>${drive.date}</td>
+          </tr>
+        `;
+                tableBody.innerHTML += row;
+            });
+        })
+        .catch((err) => console.error('Error loading placement data:', err));
+
+    // Helper function for badge color
+    function getStatusColor(status) {
+        switch (status.toLowerCase()) {
+            case 'selected': return 'success';
+            case 'pending': return 'warning text-dark';
+            case 'applied': return 'secondary';
+            case 'upcoming': return 'info';
+            default: return 'light';
+        }
+    }
+</script>
 {% endblock %}

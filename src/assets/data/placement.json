@@ -1,14 +1,40 @@
 {
   "summary": {
-    "applied": 15,
-    "selected": 3,
-    "pending": 5,
-    "upcoming": 4
+    "applied": 38,
+    "selected": 9,
+    "pending": 12,
+    "upcoming": 7
   },
   "drives": [
     { "company": "Deloitte", "role": "Analyst", "status": "Selected", "date": "2025-09-12" },
     { "company": "TCS", "role": "Developer", "status": "Pending", "date": "2025-10-01" },
     { "company": "Wipro", "role": "Engineer", "status": "Applied", "date": "2025-11-03" },
-    { "company": "Infosys", "role": "System Associate", "status": "Upcoming", "date": "2025-12-10" }
+    { "company": "Infosys", "role": "System Associate", "status": "Upcoming", "date": "2025-12-10" },
+    { "company": "Accenture", "role": "Software Engineer", "status": "Selected", "date": "2025-08-22" },
+    { "company": "IBM", "role": "Associate Consultant", "status": "Applied", "date": "2025-10-15" },
+    { "company": "Cognizant", "role": "Programmer Analyst", "status": "Pending", "date": "2025-10-25" },
+    { "company": "Tech Mahindra", "role": "Graduate Engineer Trainee", "status": "Upcoming", "date": "2025-12-02" },
+    { "company": "Capgemini", "role": "Software Analyst", "status": "Pending", "date": "2025-11-12" },
+    { "company": "HCL", "role": "Full Stack Developer", "status": "Selected", "date": "2025-09-25" },
+    { "company": "Mindtree", "role": "Frontend Developer", "status": "Applied", "date": "2025-10-05" },
+    { "company": "Oracle", "role": "Database Administrator", "status": "Upcoming", "date": "2025-12-18" },
+    { "company": "Amazon", "role": "Software Development Intern", "status": "Pending", "date": "2025-11-09" },
+    { "company": "Flipkart", "role": "Product Engineer", "status": "Applied", "date": "2025-10-28" },
+    { "company": "Google", "role": "Data Analyst Intern", "status": "Upcoming", "date": "2025-12-20" },
+    { "company": "Paytm", "role": "Backend Developer", "status": "Pending", "date": "2025-11-16" },
+    { "company": "Byju’s", "role": "Business Development Associate", "status": "Applied", "date": "2025-10-13" },
+    { "company": "ZS Associates", "role": "Decision Analyst", "status": "Selected", "date": "2025-09-29" },
+    { "company": "Adobe", "role": "UI Engineer Intern", "status": "Upcoming", "date": "2025-12-22" },
+    { "company": "EY (Ernst & Young)", "role": "Consulting Analyst", "status": "Pending", "date": "2025-11-23" },
+    { "company": "KPMG", "role": "Technology Analyst", "status": "Applied", "date": "2025-10-18" },
+    { "company": "Infosys BPM", "role": "Operations Executive", "status": "Pending", "date": "2025-11-07" },
+    { "company": "LTI Mindtree", "role": "Cloud Engineer", "status": "Upcoming", "date": "2025-12-28" },
+    { "company": "Persistent Systems", "role": "Software Engineer", "status": "Applied", "date": "2025-10-22" },
+    { "company": "Hexaware", "role": "Trainee Engineer", "status": "Pending", "date": "2025-11-13" },
+    { "company": "NTT Data", "role": "Support Analyst", "status": "Selected", "date": "2025-09-30" },
+    { "company": "Accolite Digital", "role": "Junior Developer", "status": "Applied", "date": "2025-10-19" },
+    { "company": "PwC", "role": "Technology Consultant", "status": "Pending", "date": "2025-11-25" },
+    { "company": "Cogoport", "role": "Data Engineer", "status": "Upcoming", "date": "2025-12-15" },
+    { "company": "Nagarro", "role": "Trainee Engineer", "status": "Selected", "date": "2025-09-17" }
   ]
 }
