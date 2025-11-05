@@ -12,3 +12,4 @@ document.querySelectorAll('.sidebar-item a').forEach(link => {
     link.parentElement.classList.add('active');
   }
 });
+// import './placement.js'

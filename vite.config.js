@@ -116,8 +116,11 @@ export default defineConfig((env) => ({
                 { src: normalizePath(resolve(__dirname, './src/assets/static')), dest: 'assets' },
                 { src: normalizePath(resolve(__dirname, './dist/assets/compiled/fonts')), dest: 'assets/compiled/css' },
                 { src: normalizePath(resolve(__dirname, "./node_modules/bootstrap-icons/bootstrap-icons.svg")), dest: 'assets/static/images' },
-                { src: normalizePath(resolve(__dirname, './src/assets/data')), dest: 'assets/data' },
-                { src: normalizePath(resolve(__dirname, './src/assets/js')), dest: 'assets/js' },
+
+                { src: normalizePath(resolve(__dirname, './src/assets/js/*')), dest: 'assets/js' },
+                { src: normalizePath(resolve(__dirname, './src/assets/data/*')), dest: 'assets/data' },
+                { src: normalizePath(resolve(__dirname, './src/assets/js/placement.js')), dest: 'assets/js' },
+                { src: normalizePath(resolve(__dirname, './src/assets/data/placement.json')), dest: 'assets/data' },
                 ...copyModules
             ],
             watch: {
