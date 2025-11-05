@@ -74,47 +74,6 @@
     </section>
 </div>
 {% endblock %}
-<!-- {% block js %}
-<script>
-    // Fetch placement data dynamically
-    fetch("assets/data/placement.json")
-        .then((res) => res.json())
-        .then((data) => {
-            // Update summary cards
-            document.querySelector('#appliedCount').innerText = data.summary.applied;
-            document.querySelector('#selectedCount').innerText = data.summary.selected;
-            document.querySelector('#pendingCount').innerText = data.summary.pending;
-            document.querySelector('#upcomingCount').innerText = data.summary.upcoming;
-
-            // Populate table
-            const tableBody = document.querySelector('#placementTableBody');
-            tableBody.innerHTML = '';
-            data.drives.forEach((drive, index) => {
-                const row = `
-          <tr>
-            <td>${index + 1}</td>
-            <td>${drive.company}</td>
-            <td>${drive.role}</td>
-            <td>
-              <span class="badge bg-${getStatusColor(drive.status)}">${drive.status}</span>
-            </td>
-            <td>${drive.date}</td>
-          </tr>
-        `;
-                tableBody.innerHTML += row;
-            });
-        })
-        .catch((err) => console.error('Error loading placement data:', err));
-
-    // Helper function for badge color
-    function getStatusColor(status) {
-        switch (status.toLowerCase()) {
-            case 'selected': return 'success';
-            case 'pending': return 'warning text-dark';
-            case 'applied': return 'secondary';
-            case 'upcoming': return 'info';
-            default: return 'light';
-        }
-    }
-</script>
-{% endblock %} -->
+{% block js %}
+<script src="/assets/js/placement.js"></script>
+{% endblock %}
