@@ -38,7 +38,14 @@
         </div>
     </div>
     <div class="sidebar-menu">
-        <ul class="menu">{% for sidebarItem in sidebarItems %}{% if sidebarItem.isTitle %}
+        <ul class="menu">
+             <li class="sidebar-item">
+                <a href="placement.html" class="sidebar-link">
+                    <i class="bi bi-bar-chart-line-fill"></i>
+                    <span>Placement Dashboard</span>
+                </a>
+            </li>
+            {% for sidebarItem in sidebarItems %}{% if sidebarItem.isTitle %}
             <li class="sidebar-title">{{sidebarItem.name}}</li>
             {% else %}
             <li
@@ -50,7 +57,8 @@
                 {% if sidebarItem.submenu.length > 0 %}
                 <ul class="submenu {{ 'active' if (sub.url == filename or filename|startsWith(sidebarItem.key)) }}">
                     {% for sub in sidebarItem.submenu %}
-                    <li class="submenu-item {{ 'active' if sub.url == filename or filename|startsWith(sub.key) }} {{'has-sub' if sub.submenu.length > 0 }}">
+                    <li
+                        class="submenu-item {{ 'active' if sub.url == filename or filename|startsWith(sub.key) }} {{'has-sub' if sub.submenu.length > 0 }}">
                         <a href="{{ sub.url }}" class="submenu-link">{{ sub.name }}</a>
                         {% if sub.submenu.length > 0 %}
                         <ul class="submenu submenu-level-2 ">

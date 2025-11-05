@@ -1,0 +1,14 @@
+{
+  "summary": {
+    "applied": 15,
+    "selected": 3,
+    "pending": 5,
+    "upcoming": 4
+  },
+  "drives": [
+    { "company": "Deloitte", "role": "Analyst", "status": "Selected", "date": "2025-09-12" },
+    { "company": "TCS", "role": "Developer", "status": "Pending", "date": "2025-10-01" },
+    { "company": "Wipro", "role": "Engineer", "status": "Applied", "date": "2025-11-03" },
+    { "company": "Infosys", "role": "System Associate", "status": "Upcoming", "date": "2025-12-10" }
+  ]
+}
